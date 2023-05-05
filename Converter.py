@@ -4,158 +4,168 @@ from tkinter import ttk
 
 root = Tk.Tk()
 root.title('Currency Converter')
-root.geometry("520x900")
+root.geometry("420x700")
 
 listbox = Tk.Listbox(root)
 listbox.pack(fill=Tk.BOTH, expand=True)
 
-currencies = ["Dollar", "TL", "SEK", "Yen","Euro"]
+label_from = Tk.Label(root, text='From:')
+label_from.pack()
 
-currency_listbox = Tk.Listbox(root)
-currency_listbox.pack()
+listbox_from = Tk.Listbox(root)
+listbox_from.pack(fill='both', expand=True)
 
-for currency in currencies:
-    currency_listbox.insert(Tk.END, currency)
+items = {
+    'USD': {'TRY': [0.51, 0.52], 'SEK': [10.25], 'JPY': [134.71], 'EUR': [0.91, 0.92]},
+    'TRY': {'USD': [1.96], 'SEK': [0.53], 'JPY': [7.14], 'EUR': [0.047]},
+    'SEK': {'USD': [0.097], 'TRY': [1.88], 'JPY': [13.15], 'EUR': [0.088]},
+    'JPY': {'USD': [0.0074], 'TRY': [0.14], 'SEK': [0.076], 'EUR': [0.0067]},
+    'EUR': {'USD': [1.10], 'TRY': [21.32], 'SEK': [11.37], 'JPY': [149.42]}
+}
 
-currencies_2 = ["Dollar", "TL", "SEK", "Yen","Euro"]
+for item in items: 
+    listbox_from.insert('end',item)
 
-currency2_listbox = Tk.Listbox(root)
-currency2_listbox.pack()
+label_to = Tk.Label(root,text='To:')
+label_to.pack()
 
-for currency2 in currencies:
-    currency2_listbox.insert(Tk.END, currency2)
+listbox_to = Tk.Listbox(root)
+listbox_to.pack(fill='both', expand=True)
+
+
+for item in items:
+    listbox_to.insert('end', item)
+
 
 
 style = ttk.Style()
 style.configure('Pink.TButton', background='#ff007f',foreground='white',font=('Arial Bold',16))
 
 
-def calculate_currency_value(): 
-    global TL_Var
-    TL= float(TL_var.get())
+def calculate_1(): 
+    global TRY_var
+    TRY= float(TRY_var.get())
     exchange_rate= 0.051
-    Dollar = TL * exchange_rate
-    return (Dollar,TL)
+    USD = TRY * exchange_rate
+    return (USD,TRY)
     
-def calculate_SEK():  
-     global TL_var
-     TL = float(TL_var.get())
+def calculate_2():  
+     global TRY_var
+     TRY = float(TRY_var.get())
      exchange_rate= 0.53
-     SEK = TL * exchange_rate
-     return (SEK,TL)
+     SEK = TRY * exchange_rate
+     return (SEK,TRY)
 
-def calculate_Yen():
-    global TL_var
-    TL = float(TL_var.get())
+def calculate_3():
+    global JPY_var
+    TRY = float(TRY_var.get())
     exchange_rate= 0.14
-    Yen = TL * exchange_rate
-    return (Yen,TL)
+    JPY = JPY * exchange_rate
+    return (JPY,TRY)
 
-def calculate_Euro():
-    global TL_var
-    TL = float(TL_var.get())
+def calculate_4():
+    global TRY_var
+    TRY = float(TRY_var.get())
     exchange_rate= 0.047
-    Euro = TL * exchange_rate
-    return (Euro,TL)
+    EUR = TRY * exchange_rate
+    return (EUR,TRY)
 
-def calculate_SEK():
-    global Dollar_var
-    Dollar = float(Dollar_var.get())
+def calculate_5():
+    global USD_var
+    USD = float(USD_var.get())
     exchange_rate= 10.25
-    SEK = Dollar * exchange_rate
-    return (SEK, Dollar)
+    SEK = USD * exchange_rate
+    return (SEK, USD)
 
-def calculate_Yen():
-    global Dollar_Var
-    Dollar = float(Dollar_var.get())
+def calculate_6():
+    global USD_Var
+    USD = float(USD_var.get())
     exchange_rate= 134.71
-    Yen = Dollar * exchange_rate
-    return (Yen,Dollar)
+    JPY = USD * exchange_rate
+    return (JPY,USD)
 
-def calculate_Euro():
-    global Dollar_var
-    Dollar = float(Dollar_var.get())
+def calculate_7():
+    global USD_var
+    USD = float(USD_var.get())
     exchange_rate= 0.91
-    Euro = Dollar * exchange_rate
-    return (Euro, Dollar)
+    EUR = USD * exchange_rate
+    return (EUR, USD)
 
-def calculate_Yen():
+def calculate_8():
     global SEK_var
     SEK = float(SEK_var.get())
     exchange_rate= 13.15
-    Yen = SEK * exchange_rate
-    return (Yen, SEK)
+    JPY = SEK * exchange_rate
+    return (JPY, SEK)
 
-def calculate_Euro():
+def calculate_9():
     global SEK_var
     SEK = float(SEK_var.get())
     exchange_rate= 0.088
-    Euro = SEK * exchange_rate
-    return (Euro, SEK)
+    EUR = SEK * exchange_rate
+    return (EUR, SEK)
 
-def calculate_Yen():
-    global Yen_var
-    Yen = float(Yen_var.get())
+def calculate_10():
+    global JPY_var
+    JPY = float(JPY_var.get())
     exchange_rate= 0.0067
-    Euro = Yen * exchange_rate
-    return (Euro, Yen)
+    EUR = JPY * exchange_rate
+    return (EUR, JPY)
 
     
     
-    
-    
-    
-    
-
-
-Dollar = Tk.StringVar() 
-TL = Tk.StringVar()
+USD = Tk.StringVar() 
+TRY = Tk.StringVar()
 SEK = Tk.StringVar()
-Yen = Tk.StringVar()
-Euro = Tk.StringVar()
+JPY = Tk.StringVar()
+EUR = Tk.StringVar()
 
-def get_Dollar():
-    Dollar_index = currency_listbox.curselection()
-    if Dollar_index:
-        Dollar.set(currencies[Dollar_index[0]])
+def get_USD():
+    USD_index = items.curselection()
+    if USD_index:
+        USD.set(listbox_to[USD_index[0]])
 
-def get_TL():
-    TL_index = currency_listbox.curselection()
-    if TL_index:
-        TL.set(currencies[TL_index[0]])
+def get_TRY():
+    TRY_index = items.curselection()
+    if TRY_index:
+        TRY.set(listbox_to[TRY_index[0]])
 
 def get_SEK():
-    SEK_index = currency_listbox.curselection()
+    SEK_index = items.curselection()
     if SEK_index:
-        SEK.set(currencies[SEK_index[0]])
+        SEK.set(listbox_to[SEK_index[0]])
 
-def get_Yen():
-    Yen_index = currency_listbox.curselection()
-    if Yen_index:
-        Yen.set(currencies[Yen_index[0]])
+def get_JPY():
+    JPY_index = items.curselection()
+    if JPY_index:
+        JPY.set(listbox_to[JPY_index[0]])
 
-def get_Euro():
-    Euro_index = currency_listbox.curselection()
-    if Euro_index:
-        Euro.set(currencies[Euro_index[0]])
+def get_EUR():
+    EUR_index = items.curselection()
+    if EUR_index:
+        EUR.set(listbox_to[EUR_index[0]])
 
-
-
-
-
-
-
-
+Output = Tk.StringVar()
+output_entry = ttk.Entry(root, textvariable=Output)
+output_entry.pack(fill='x',expand=True)
+Output.get()
+output_entry.focus()
 
 
 
 
-calculate_currency = ttk.Frame(root)
-calculate_currency.pack(padx=10, pady=10, fill='x', expand=True)
+
+Result = Tk.StringVar()
+result_entry = ttk.Entry(root,textvariable=Result)
+result_entry.pack(fill='x', expand=True)
+Result.get()
+result_entry.focus()
 
 
 
-convert_button = ttk.Button(calculate_currency,text="Convert",style='Pink.TButton',command=calculate_currency_value)
+
+
+convert_button = ttk.Button(root,text="Convert",style='Pink.TButton',command=calculate_1)
 convert_button.pack(fill='y', expand=False, pady=6)
 
 
