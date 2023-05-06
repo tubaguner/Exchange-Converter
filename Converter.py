@@ -51,36 +51,6 @@ def calculate_currency():
 
 
     
-USD = Tk.StringVar() 
-TRY = Tk.StringVar()
-SEK = Tk.StringVar()
-JPY = Tk.StringVar()
-EUR = Tk.StringVar()
-
-def get_USD():
-    USD_index = items.curselection()
-    if USD_index:
-        USD.set(listbox_to[USD_index[0]])
-
-def get_TRY():
-    TRY_index = items.curselection()
-    if TRY_index:
-        TRY.set(listbox_to[TRY_index[0]])
-
-def get_SEK():
-    SEK_index = items.curselection()
-    if SEK_index:
-        SEK.set(listbox_to[SEK_index[0]])
-
-def get_JPY():
-    JPY_index = items.curselection()
-    if JPY_index:
-        JPY.set(listbox_to[JPY_index[0]])
-
-def get_EUR():
-    EUR_index = items.curselection()
-    if EUR_index:
-        EUR.set(listbox_to[EUR_index[0]])
 
 Input = Tk.StringVar()
 Input_entry = ttk.Entry(root, textvariable=Input)
