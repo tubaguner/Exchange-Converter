@@ -13,8 +13,8 @@ listbox_from = Tk.Listbox(root, exportselection=0)
 listbox_from.pack(fill='both', expand=True)
 
 items = {
-    'USD': {'TRY': [0.51], 'SEK': [10.25], 'JPY': [134.71], 'EUR': [0.91]},
-    'TRY': {'USD': [1.96], 'SEK': [0.53], 'JPY': [7.14], 'EUR': [0.047]},
+    'USD': {'TRY': [19.6], 'SEK': [10.25], 'JPY': [134.71], 'EUR': [0.91]},
+    'TRY': {'USD': [0.51], 'SEK': [0.53], 'JPY': [7.14], 'EUR': [0.047]},
     'SEK': {'USD': [0.097], 'TRY': [1.88], 'JPY': [13.15], 'EUR': [0.088]},
     'JPY': {'USD': [0.0074], 'TRY': [0.14], 'SEK': [0.076], 'EUR': [0.0067]},
     'EUR': {'USD': [1.10], 'TRY': [21.32], 'SEK': [11.37], 'JPY': [149.42]}
