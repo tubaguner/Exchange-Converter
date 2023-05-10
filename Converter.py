@@ -4,7 +4,7 @@ from tkinter import ttk
 
 root = Tk.Tk()
 root.title('Currency Converter')
-root.geometry("420x700")
+root.geometry("420x520")
 
 label_from = Tk.Label(root, text='From:')
 label_from.pack()
@@ -13,8 +13,8 @@ listbox_from = Tk.Listbox(root, exportselection=0)
 listbox_from.pack(fill='both', expand=True)
 
 items = {
-    'USD': {'TRY': [19.6], 'SEK': [10.25], 'JPY': [134.71], 'EUR': [0.91]},
-    'TRY': {'USD': [0.51], 'SEK': [0.53], 'JPY': [7.14], 'EUR': [0.047]},
+    'USD': {'TRY': [0.051], 'SEK': [10.25], 'JPY': [134.71], 'EUR': [0.91]},
+    'TRY': {'USD': [19.6], 'SEK': [0.53], 'JPY': [7.14], 'EUR': [0.047]},
     'SEK': {'USD': [0.097], 'TRY': [1.88], 'JPY': [13.15], 'EUR': [0.088]},
     'JPY': {'USD': [0.0074], 'TRY': [0.14], 'SEK': [0.076], 'EUR': [0.0067]},
     'EUR': {'USD': [1.10], 'TRY': [21.32], 'SEK': [11.37], 'JPY': [149.42]}
@@ -35,7 +35,7 @@ for item in items:
 
 
 style = ttk.Style()
-style.configure('Pink.TButton', background='#ff007f',foreground='white',font=('Arial Bold',16))
+style.configure('Pink.TButton', background='#F0F0F8',foreground='#404040',font=('Arial Bold',16))
 
 def calculate_currency(): 
     from_item =listbox_from.curselection()
@@ -69,15 +69,15 @@ result_entry.focus()
 
 
 convert_button = ttk.Button(root,text="Convert",style='Pink.TButton',command=calculate_currency)
-convert_button.pack(fill='y', expand=False, pady=6)
+convert_button.pack(fill='y', expand=False, pady=10)
 
 
 
 style = ttk.Style()
-style.configure('TLabel', background='#ffb6c1')
+style.configure('TLabel', background='#FFFF00')
 
 
-root.configure(bg='#ff69b4')
+root.configure(bg='#FFFF00')
 
 
 root.mainloop()
