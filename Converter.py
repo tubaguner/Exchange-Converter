@@ -43,7 +43,7 @@ def calculate_currency():
     amount = Input.get()
 
     if not amount:
-        Result.set("No amount entered!")
+        Result.set("Please enter an amount")
     else:
         amount = float(amount)
         from_index = from_item[0]
